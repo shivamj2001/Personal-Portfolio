@@ -14,12 +14,15 @@
         <nav>
             <!-- this section is for logo eg(kevin) on top left
              <img src="images/logo.png" class="logo" -->
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Frontend Developer</p>
@@ -38,7 +41,8 @@
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
-                <p>This is the first paragraph of text. This is the first paragraph of text. This is the first paragraph of text. This is the first paragraph of text.
+                <p>This is the first paragraph of text. This is the first paragraph of text. This is the first par
+                    agraph of text. This is the first paragraph of text.
                     This is the second paragraph. This is the second paragraph. This is the second paragraph. This is the second paragraph.
                 </p>
                     <div class="tab-titles">
@@ -106,6 +110,74 @@
     </div>
 </div>
 
+<!------------------------------------------------------portfolio--------------------------------------->
+<div id="portfolio">
+    <div class="container">
+        <div class="sub-title">My Work</div>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png">
+                <div class="layer">
+                    <h3>Social Media App</h3>
+                    <p>This is the first paragraph of text.This is the first paragraph of text.
+                        This is the </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>    
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png">
+                <div class="layer">
+                    <h3>Music App</h3>
+                    <p>This is the first paragraph of text.This is the first paragraph of text.
+                        This is the </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>    
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>Media App</h3>
+                    <p>This is the first paragraph of text.This is the first paragraph of text.
+                        This is the </p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>    
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<!----------------------------contact------------------------->
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>contact@abc.com</p>
+                <p><i class="fa-solid fa-square-phone"></i>7985577623</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="emaile" placeholder="Your Email" required>
+                    <textarea type="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Made by <i class="fa-solid fa-heart"></i> Shivam Jaiswal</p>
+    </div>
+</div>
+
 <script>
 
     var tablinks = document.getElementsByClassName("tab-links");
@@ -122,7 +194,34 @@
         document.getElementById(tabname).classList.add("active-tab");
 
     }
+
+    
 </script>
+
+<script>
+
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx7djnVPIYw0MbwIfvcWlcihT32KTMEGuyY7drv9EuCb1aEN_-kd51Qlg8eYkj6nU8/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 
 </html>
